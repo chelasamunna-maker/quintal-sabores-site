@@ -1,0 +1,355 @@
+/* Importação de fonte do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;700&display=swap');
+
+:root {
+    /* Cores: Marrom Escuro (Fundo), Dourado (Destaque) */
+    --color-primary: #3E2723; /* Marrom Escuro / Café */
+    --color-secondary: #FFC107; /* Dourado/Âmbar (Chique) */
+    --color-tertiary: #A1887F; /* Marrom Claro/Acizentado */
+    --color-text-light: #FFFFFF; /* Branco */
+    --color-text-dark: #333333; /* Cinza escuro para texto */
+    --color-background-soft: #F5F5F5; /* Fundo suave */
+
+    /* Fontes */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Roboto', sans-serif;
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--color-text-dark);
+    background-color: var(--color-background-soft);
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-secondary);
+}
+
+/* --- LOGOTIPO (Panela com Vapor) --- */
+.logo-icon {
+    font-size: 1.2em;
+    margin-right: 10px;
+    color: var(--color-secondary);
+}
+
+/* --- Seção HERO (Capa e Menu Topo) --- */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Altura total para Home */
+    /* background-size: cover; <-- REMOVIDO */
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-text-light);
+    text-align: center;
+}
+
+.menu-hero {
+    height: 40vh; /* Altura menor para o Menu */
+}
+
+/* Sobreposição escura para a foto de fundo */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background-color: rgba(0, 0, 0, 0.7); <-- REMOVIDO - USANDO COR INLINE */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    max-width: 800px;
+}
+
+.hero h1 {
+    font-family: var(--font-heading);
+    font-size: 3.5em;
+    margin-bottom: 15px;
+    color: var(--color-secondary); /* Dourado */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9); /* Sombra mais forte */
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+/* Botão padrão */
+.button {
+    display: inline-block;
+    background-color: var(--color-secondary); /* Dourado */
+    color: var(--color-primary); /* Texto marrom escuro */
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #E6B800;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.button-inverted {
+    background-color: transparent;
+    border: 2px solid var(--color-secondary);
+    color: var(--color-secondary);
+}
+
+.button-inverted:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    transform: none;
+    box-shadow: none;
+}
+
+/* --- Seção de Informação (Aviso de Encomenda) --- */
+.info-section {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: var(--color-primary); /* Fundo Marrom Escuro */
+    color: var(--color-text-light); /* Texto branco */
+}
+
+.order-notice {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: var(--color-secondary); /* Dourado */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.order-notice .icon {
+    font-size: 1.5em;
+}
+
+/* --- Container do Menu --- */
+.menu-container {
+    display: flex; /* ATIVA O LAYOUT DE COLUNAS */
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    gap: 30px;
+}
+
+.menu-list {
+    flex-grow: 3;
+}
+
+.menu-list section {
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--color-tertiary);
+}
+
+.menu-list h2 {
+    font-family: var(--font-heading);
+    font-size: 2.2em;
+    color: var(--color-primary); /* Marrom escuro */
+    border-left: 5px solid var(--color-secondary); /* Dourado */
+    padding-left: 10px;
+    margin-bottom: 25px;
+}
+
+/* Estilo do Item Individual (COM IMAGENS) */
+.menu-item {
+    background-color: var(--color-text-light);
+    border: 1px solid var(--color-tertiary);
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    
+    display: flex;
+    align-items: center; 
+    gap: 15px; 
+}
+
+.item-image {
+    width: 80px; 
+    height: 80px;
+    object-fit: cover; 
+    border-radius: 8px;
+    border: 2px solid var(--color-secondary);
+    flex-shrink: 0; 
+}
+
+.menu-item-details {
+    flex-grow: 1; 
+}
+
+.menu-item h3 {
+    font-size: 1.3em;
+    color: var(--color-primary);
+    margin: 0 0 5px 0; 
+}
+
+.menu-item .description {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 0; 
+}
+
+/* Estilo do Rodapé (Preço e Botão) */
+.item-footer {
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-end; 
+    gap: 5px;
+    margin-left: auto; 
+    flex-shrink: 0; 
+}
+
+.price-tag {
+    font-family: var(--font-heading);
+    font-size: 1.5em;
+    color: var(--color-tertiary); /* Marrom mais suave */
+    font-weight: bold;
+    white-space: nowrap; 
+}
+
+/* Estilo do Carrinho */
+.cart-summary {
+    flex-grow: 1;
+    background-color: var(--color-primary); /* Marrom Escuro */
+    color: var(--color-text-light); 
+    padding: 20px;
+    border-radius: 8px;
+    max-height: 400px; 
+    position: sticky; /* FIXA O CARRINHO AO SCROLLAR */
+    top: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.cart-summary h2 {
+    color: var(--color-secondary);
+    margin-top: 0;
+    font-family: var(--font-heading);
+}
+
+#cart-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+    font-size: 0.95em;
+}
+
+#cart-list li {
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed #666; /* Linha mais clara */
+}
+
+.item-remove {
+    cursor: pointer;
+    color: #FF5555;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.empty-cart-message {
+    color: #aaa;
+}
+
+.cart-total {
+    font-size: 1.3em;
+    font-weight: bold;
+    border-top: 1px solid #666;
+    padding-top: 10px;
+}
+
+.checkout-button {
+    width: 100%;
+    margin-top: 15px;
+    background-color: var(--color-secondary); /* Dourado */
+    color: var(--color-primary);
+}
+.checkout-button:hover {
+    background-color: #E6B800;
+}
+
+
+/* --- Estilos Adicionais para o Rodapé (Footer) --- */
+footer {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    text-align: center;
+    padding: 30px 20px; 
+    font-size: 0.9em;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-info strong {
+    color: var(--color-secondary);
+}
+
+/* --- Responsividade --- */
+@media (max-width: 900px) {
+    .menu-container {
+        flex-direction: column; 
+    }
+
+    .cart-summary {
+        max-height: none; 
+        position: static; 
+    }
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5em;
+    }
+
+    .hero p {
+        font-size: 1em;
+    }
+
+    .button {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+
+    .menu-item {
+        flex-wrap: wrap; 
+        align-items: flex-start;
+    }
+    
+    .menu-item .item-footer {
+        margin-left: 0;
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+        border-top: 1px dashed var(--color-background-soft);
+        padding-top: 10px;
+    }
+}
