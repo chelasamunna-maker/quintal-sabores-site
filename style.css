@@ -6,10 +6,10 @@
 
 body {
     /* Fundo Principal (Nova Imagem) */
-    background-image: url('img/Foto_Chef_menu.png'); /* Caminho para a sua imagem */
-    background-size: cover; /* Faz a imagem cobrir toda a tela */
-    background-repeat: no-repeat; /* Impede a repetição */
-    background-attachment: fixed; /* Fixa a imagem no lugar enquanto o conteúdo rola */
+    background-image: url('img/Foto_Chef_menu.png'); 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
     
     /* Outras propriedades */
     font-family: Arial, sans-serif;
@@ -71,10 +71,11 @@ nav ul li a:hover {
     padding: 20px;
 }
 
+/* Tornar o fundo do conteúdo mais opaco para legibilidade */
 section {
     padding: 40px 20px;
     margin: 20px 0;
-    background-color: rgba(255, 255, 255, 0.85); /* Fundo branco levemente transparente para o conteúdo */
+    background-color: rgba(255, 255, 255, 0.95); /* Aumentei a opacidade */
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
@@ -94,9 +95,9 @@ section h2 {
  */
 
 .menu-item {
-    display: flex;
+    display: flex; /* CRÍTICO: Alinha imagem e texto */
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start; /* Alinha o conteúdo ao topo */
     padding: 15px 0;
     border-bottom: 1px dashed #ccc;
     transition: background-color 0.3s;
@@ -106,8 +107,24 @@ section h2 {
     border-bottom: none;
 }
 
+/* Contêiner para envolver a imagem */
+.item-img-container {
+    margin-right: 15px;
+    flex-shrink: 0; /* Impede que a imagem seja reduzida */
+}
+
+/* CRÍTICO: Estilo da Imagem do Menu */
+.menu-image {
+    width: 100px; 
+    height: 100px; 
+    object-fit: cover; 
+    border-radius: 5px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
 .item-info {
     flex-grow: 1;
+    display: block;
 }
 
 .item-info h3 {
@@ -124,7 +141,7 @@ section h2 {
 
 .item-price {
     font-weight: bold;
-    color: #e65100; /* Laranja Escuro */
+    color: #e65100; 
     font-size: 1.2em;
     margin-left: 20px;
 }
@@ -138,6 +155,7 @@ section h2 {
     border-radius: 5px;
     font-weight: bold;
     transition: background-color 0.3s, transform 0.1s;
+    flex-shrink: 0; /* Impede que o botão seja reduzido */
 }
 
 .add-to-cart:hover {
@@ -155,9 +173,12 @@ section h2 {
  */
 
 .cart-section {
-    background-color: #fff8e1; /* Fundo Creme */
+    background-color: #fff8e1; 
     border: 1px solid #ffcc80;
 }
+
+/* ... (O resto do CSS não precisa de ser alterado) ... */
+
 
 .cart-content {
     background-color: #fff;
@@ -180,7 +201,7 @@ section h2 {
 }
 
 .item-remove {
-    color: #d32f2f; /* Vermelho Escuro */
+    color: #d32f2f;
     cursor: pointer;
     font-weight: bold;
     margin-left: 10px;
@@ -204,7 +225,7 @@ section h2 {
 
 #checkout-btn {
     width: 100%;
-    background-color: #4CAF50; /* Verde */
+    background-color: #4CAF50;
     color: white;
     padding: 10px;
     border: none;
@@ -260,7 +281,7 @@ footer {
 
 .cta-button {
     display: inline-block;
-    background-color: #ff9800; /* Laranja Principal */
+    background-color: #ff9800; 
     color: white;
     padding: 12px 25px;
     text-decoration: none;
@@ -272,32 +293,4 @@ footer {
 
 .cta-button:hover {
     background-color: #fb8c00;
-}
-/* =======================================================
- * ESTILOS DE CORREÇÃO PARA IMAGENS DO MENU
- * ======================================================= */
-
-.menu-image {
-    width: 100px; /* Define largura fixa para as imagens */
-    height: 100px; /* Define altura fixa para as imagens */
-    object-fit: cover; /* Garante que a imagem preencha a área sem esticar */
-    border-radius: 5px; /* Arredonda as pontas */
-    margin-right: 15px; /* Adiciona espaço à direita */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
-}
-
-.item-img-container {
-    display: flex; /* Permite centralizar a imagem se necessário */
-    align-items: center;
-}
-
-/* Altera o estilo do item-info para que o texto fique ao lado da imagem */
-.menu-item .item-info {
-    flex-grow: 1;
-    display: flex; /* Usa flexbox para manter os elementos lado a lado */
-    align-items: center;
-}
-
-.menu-item {
-    align-items: flex-start; /* Alinha o conteúdo ao topo para melhor visualização */
 }
