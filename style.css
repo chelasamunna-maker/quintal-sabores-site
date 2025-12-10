@@ -273,3 +273,31 @@ footer {
 .cta-button:hover {
     background-color: #fb8c00;
 }
+/* =======================================================
+ * ESTILOS DE CORREÇÃO PARA IMAGENS DO MENU
+ * ======================================================= */
+
+.menu-image {
+    width: 100px; /* Define largura fixa para as imagens */
+    height: 100px; /* Define altura fixa para as imagens */
+    object-fit: cover; /* Garante que a imagem preencha a área sem esticar */
+    border-radius: 5px; /* Arredonda as pontas */
+    margin-right: 15px; /* Adiciona espaço à direita */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.item-img-container {
+    display: flex; /* Permite centralizar a imagem se necessário */
+    align-items: center;
+}
+
+/* Altera o estilo do item-info para que o texto fique ao lado da imagem */
+.menu-item .item-info {
+    flex-grow: 1;
+    display: flex; /* Usa flexbox para manter os elementos lado a lado */
+    align-items: center;
+}
+
+.menu-item {
+    align-items: flex-start; /* Alinha o conteúdo ao topo para melhor visualização */
+}
