@@ -1,28 +1,187 @@
-/* =======================================================
- * ESTILOS DE CORREÇÃO PARA IMAGENS DO MENU
- * ======================================================= */
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio | Quintal dos Sabores</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><h1>Nosso Cardápio</h1></li>
+            </ul>
+        </nav>
+    </header>
 
-.menu-image {
-    width: 100px; /* Define largura fixa para as imagens */
-    height: 100px; /* Define altura fixa para as imagens */
-    object-fit: cover; /* Garante que a imagem preencha a área sem esticar */
-    border-radius: 5px; /* Arredonda as pontas */
-    margin-right: 15px; /* Adiciona espaço à direita */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
-}
+    <div class="container">
+        <section id="menu">
+            <p>Descubra os sabores autênticos da nossa cozinha, preparados com dedicação.</p>
+            <a href="index.html" class="cta-button">Voltar para a Home</a>
 
-.item-img-container {
-    display: flex; /* Permite centralizar a imagem se necessário */
-    align-items: center;
-}
+            <h2>Pratos Principais</h2>
 
-/* Altera o estilo do item-info para que o texto fique ao lado da imagem */
-.menu-item .item-info {
-    flex-grow: 1;
-    display: flex; /* Usa flexbox para manter os elementos lado a lado */
-    align-items: center;
-}
+            <div class="menu-item" data-name="Funge com Carne" data-price="3000">
+                <div class="item-img-container">
+                    <img src="img/funge_com_carne.jpg" alt="Funge com Carne" class="menu-image">
+                </div>
+                <div class="item-info">
+                    <h3>Funge com Carne Abatida + Jimboa ou Kizaca</h3>
+                    <p>Carne de vaca abatida com os acompanhamentos de sua escolha.</p>
+                </div>
+                <span class="item-price">3.000 Kz</span>
+                <button class="add-to-cart">Adicionar ao Pedido</button>
+            </div>
 
-.menu-item {
-    align-items: flex-start; /* Alinha o conteúdo ao topo para melhor visualização */
-}
+            <div class="menu-item" data-name="Caril de Galinha" data-price="2800">
+                <div class="item-img-container">
+                    <img src="img/caril_galinha.jpg" alt="Caril de Galinha" class="menu-image">
+                </div>
+                <div class="item-info">
+                    <h3>Caril de Galinha</h3>
+                    <p>O delicioso caril de galinha angolano servido com arroz branco.</p>
+                </div>
+                <span class="item-price">2.800 Kz</span>
+                <button class="add-to-cart">Adicionar ao Pedido</button>
+            </div>
+
+            <div class="menu-item" data-name="Arroz com Caldeirada" data-price="2500">
+                <div class="item-img-container">
+                    <img src="img/arroz_com_caldeirada.jpg" alt="Arroz com Caldeirada" class="menu-image">
+                </div>
+                <div class="item-info">
+                    <h3>Arroz com Feijoada</h3>
+                    <p>Feijoada angolana tradicional, servida com arroz branco.</p>
+                </div>
+                <span class="item-price">2.500 Kz</span>
+                <button class="add-to-cart">Adicionar ao Pedido</button>
+            </div>
+
+            <div class="menu-item" data-name="Mufete de Peixe" data-price="3500">
+                <div class="item-img-container">
+                    <img src="img/mufete_de_peixe.jpg" alt="Mufete de Peixe" class="menu-image">
+                </div>
+                <div class="item-info">
+                    <h3>Mufete de Peixe</h3>
+                    <p>Peixe grelhado, acompanhado de feijão, banana e batata-doce.</p>
+                </div>
+                <span class="item-price">3.500 Kz</span>
+                <button class="add-to-cart">Adicionar ao Pedido</button>
+            </div>
+            
+            <h2>Sobremesas (Doces)</h2>
+
+            <div class="menu-item" data-name="Tiramisù" data-price="1500">
+                <div class="item-img-container">
+                    <img src="img/tiramisu.jpg" alt="Tiramisù" class="menu-image">
+                </div>
+                <div class="item-info">
+                    <h3>Tiramisù</h3>
+                    <p>Clássica sobremesa italiana com café e mascarpone.</p>
+                </div>
+                <span class="item-price">1.500 Kz</span>
+                <button class="add-to-cart">Adicionar ao Pedido</button>
+            </div>
+            
+            <div class="menu-item" data-name="Mousse de Maracujá" data-price="1200">
+                <div class="item-img-container">
+                    <img src="img/mousse_maracuja.jpg" alt="Mousse de Maracujá" class="menu-image">
+                </div>
+                <div class="item-info">
+                    <h3>Mousse de Maracujá</h3>
+                    <p>Mousse cremosa e refrescante de maracujá.</p>
+                </div>
+                <span class="item-price">1.200 Kz</span>
+                <button class="add-to-cart">Adicionar ao Pedido</button>
+            </div>
+            
+            <div class="menu-item" data-name="Pudim de Leite Condensado/Chocolate" data-price="1000">
+                <div class="item-img-container">
+                    <img src="img/pudim_leite_chocolate.jpg" alt="Pudim de Leite Condensado/Chocolate" class="menu-image">
+                </div>
+                <div class="item-info">
+                    <h3>Pudim de Leite Condensado/Chocolate</h3>
+                    <p>Pudim de textura suave e delicioso sabor.</p>
+                </div>
+                <span class="item-price">1.000 Kz</span>
+                <button class="add-to-cart">Adicionar ao Pedido</button>
+            </div>
+            
+            <div class="menu-item" data-name="Bolo de Chocolate" data-price="1300">
+                <div class="item-img-container">
+                    <img src="img/bolo_chocolate.jpg" alt="Bolo de Chocolate" class="menu-image">
+                </div>
+                <div class="item-info">
+                    <h3>Bolo de Chocolate</h3>
+                    <p>Fatias de bolo húmido e intenso de chocolate.</p>
+                </div>
+                <span class="item-price">1.300 Kz</span>
+                <button class="add-to-cart">Adicionar ao Pedido</button>
+            </div>
+            
+            <div class="menu-item" data-name="Bolo de Ginguba" data-price="1400">
+                <div class="item-img-container">
+                    <img src="img/bolo_ginguba.jpg" alt="Bolo de Ginguba" class="menu-image">
+                </div>
+                <div class="item-info">
+                    <h3>Bolo de Ginguba</h3>
+                    <p>Bolo tradicional angolano feito com ginguba (amendoim).</p>
+                </div>
+                <span class="item-price">1.400 Kz</span>
+                <button class="add-to-cart">Adicionar ao Pedido</button>
+            </div>
+
+            <h2>Bebidas</h2>
+
+            <div class="menu-item" data-name="Sumo Natural" data-price="500">
+                <div class="item-img-container">
+                    <img src="img/sumo_natural.jpeg" alt="Sumo Natural" class="menu-image">
+                </div>
+                <div class="item-info">
+                    <h3>Sumo Natural</h3>
+                    <p>Sumo fresco de Fruta (Maracujá, Abacaxi, ou outro).</p>
+                </div>
+                <span class="item-price">500 Kz</span>
+                <button class="add-to-cart">Adicionar ao Pedido</button>
+            </div>
+
+            <div class="menu-item" data-name="Água Mineral Chela" data-price="300">
+                <div class="item-img-container">
+                    <img src="img/agua_mineral.jpg" alt="Água Mineral Chela" class="menu-image">
+                </div>
+                <div class="item-info">
+                    <h3>Água Mineral Chela</h3>
+                    <p>Água mineral de nascente natural.</p>
+                </div>
+                <span class="item-price">300 Kz</span>
+                <button class="add-to-cart">Adicionar ao Pedido</button>
+            </div>
+
+        </section>
+
+        <section id="cart" class="cart-section">
+            <h2>🛒 Meu Pedido</h2>
+            <div class="cart-content">
+                <ul id="cart-list">
+                    <li class="empty-cart-message">(Carrinho vazio)</li>
+                </ul>
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="total-price">0 Kz</span>
+                </div>
+                <button id="checkout-btn">Finalizar Encomenda (WhatsApp)</button>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Quintal dos Sabores. Todos os direitos reservados. Design por Chelasamunna.</p>
+            <p>Sassamba, Rua da Vala, Saurimo</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+    </html>
