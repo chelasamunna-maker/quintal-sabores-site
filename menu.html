@@ -6,28 +6,37 @@
     <title>Cardápio | Quintal dos Sabores</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <header>
+<body id="menu-page"> <header>
         <nav>
-            <ul>
-                <li><h1>Nosso Cardápio</h1></li>
+            <ul class="logo-area">
+                <li>
+                    <img src="img/logo_quintal_sabores.jpg" alt="Logotipo Quintal dos Sabores" class="header-logo">
+                </li>
+            </ul>
+            <ul class="nav-links">
+                <li><a href="index.html">Página Inicial</a></li>
+                <li><a href="menu.html">Cardápio</a></li>
+                <li><a href="index.html#coordenadas">Coordenadas Bancárias</a></li>
             </ul>
         </nav>
     </header>
 
-    <div class="container">
-        <section id="menu">
+    <div class="main-content-grid">
+        
+        <section id="menu" class="menu-list-column">
+            <h2>Nosso Cardápio</h2>
             <p>Descubra os sabores autênticos da nossa cozinha, preparados com dedicação.</p>
+            
             <a href="index.html" class="cta-button">Voltar para a Home</a>
 
-            <h2>Pratos Principais</h2>
+            <h3>Pratos Principais</h3>
 
             <div class="menu-item" data-name="Funge com Carne" data-price="3000">
                 <div class="item-img-container">
                     <img src="img/funge_com_carne.jpg" alt="Funge com Carne" class="menu-image">
                 </div>
                 <div class="item-info">
-                    <h3>Funge com Carne Abatida + Jimboa ou Kizaca</h3>
+                    <h4>Funge com Carne Abatida + Jimboa ou Kizaca</h4>
                     <p>Carne de vaca abatida com os acompanhamentos de sua escolha.</p>
                 </div>
                 <span class="item-price">3.000 Kz</span>
@@ -39,19 +48,19 @@
                     <img src="img/caril_galinha.jpg" alt="Caril de Galinha" class="menu-image">
                 </div>
                 <div class="item-info">
-                    <h3>Caril de Galinha</h3>
+                    <h4>Caril de Galinha</h4>
                     <p>O delicioso caril de galinha angolano servido com arroz branco.</p>
                 </div>
                 <span class="item-price">2.800 Kz</span>
                 <button class="add-to-cart">Adicionar ao Pedido</button>
             </div>
 
-            <div class="menu-item" data-name="Arroz com Caldeirada" data-price="2500">
+            <div class="menu-item" data-name="Arroz com Feijoada" data-price="2500">
                 <div class="item-img-container">
-                    <img src="img/arroz_com_caldeirada.jpg" alt="Arroz com Caldeirada" class="menu-image">
+                    <img src="img/arroz_com_caldeirada.jpg" alt="Arroz com Feijoada" class="menu-image">
                 </div>
                 <div class="item-info">
-                    <h3>Arroz com Feijoada</h3>
+                    <h4>Arroz com Feijoada</h4>
                     <p>Feijoada angolana tradicional, servida com arroz branco.</p>
                 </div>
                 <span class="item-price">2.500 Kz</span>
@@ -63,21 +72,21 @@
                     <img src="img/mufete_de_peixe.jpg" alt="Mufete de Peixe" class="menu-image">
                 </div>
                 <div class="item-info">
-                    <h3>Mufete de Peixe</h3>
+                    <h4>Mufete de Peixe</h4>
                     <p>Peixe grelhado, acompanhado de feijão, banana e batata-doce.</p>
                 </div>
                 <span class="item-price">3.500 Kz</span>
                 <button class="add-to-cart">Adicionar ao Pedido</button>
             </div>
             
-            <h2>Sobremesas (Doces)</h2>
+            <h3>Sobremesas (Doces)</h3>
 
             <div class="menu-item" data-name="Tiramisù" data-price="1500">
                 <div class="item-img-container">
                     <img src="img/tiramisu.jpg" alt="Tiramisù" class="menu-image">
                 </div>
                 <div class="item-info">
-                    <h3>Tiramisù</h3>
+                    <h4>Tiramisù</h4>
                     <p>Clássica sobremesa italiana com café e mascarpone.</p>
                 </div>
                 <span class="item-price">1.500 Kz</span>
@@ -89,7 +98,7 @@
                     <img src="img/mousse_maracuja.jpg" alt="Mousse de Maracujá" class="menu-image">
                 </div>
                 <div class="item-info">
-                    <h3>Mousse de Maracujá</h3>
+                    <h4>Mousse de Maracujá</h4>
                     <p>Mousse cremosa e refrescante de maracujá.</p>
                 </div>
                 <span class="item-price">1.200 Kz</span>
@@ -101,7 +110,7 @@
                     <img src="img/pudim_leite_chocolate.jpg" alt="Pudim de Leite Condensado/Chocolate" class="menu-image">
                 </div>
                 <div class="item-info">
-                    <h3>Pudim de Leite Condensado/Chocolate</h3>
+                    <h4>Pudim de Leite Condensado/Chocolate</h4>
                     <p>Pudim de textura suave e delicioso sabor.</p>
                 </div>
                 <span class="item-price">1.000 Kz</span>
@@ -113,7 +122,7 @@
                     <img src="img/bolo_chocolate.jpg" alt="Bolo de Chocolate" class="menu-image">
                 </div>
                 <div class="item-info">
-                    <h3>Bolo de Chocolate</h3>
+                    <h4>Bolo de Chocolate</h4>
                     <p>Fatias de bolo húmido e intenso de chocolate.</p>
                 </div>
                 <span class="item-price">1.300 Kz</span>
@@ -125,21 +134,21 @@
                     <img src="img/bolo_ginguba.jpg" alt="Bolo de Ginguba" class="menu-image">
                 </div>
                 <div class="item-info">
-                    <h3>Bolo de Ginguba</h3>
+                    <h4>Bolo de Ginguba</h4>
                     <p>Bolo tradicional angolano feito com ginguba (amendoim).</p>
                 </div>
                 <span class="item-price">1.400 Kz</span>
                 <button class="add-to-cart">Adicionar ao Pedido</button>
             </div>
 
-            <h2>Bebidas</h2>
+            <h3>Bebidas</h3>
 
             <div class="menu-item" data-name="Sumo Natural" data-price="500">
                 <div class="item-img-container">
                     <img src="img/sumo_natural.jpeg" alt="Sumo Natural" class="menu-image">
                 </div>
                 <div class="item-info">
-                    <h3>Sumo Natural</h3>
+                    <h4>Sumo Natural</h4>
                     <p>Sumo fresco de Fruta (Maracujá, Abacaxi, ou outro).</p>
                 </div>
                 <span class="item-price">500 Kz</span>
@@ -151,7 +160,7 @@
                     <img src="img/agua_mineral.jpg" alt="Água Mineral Chela" class="menu-image">
                 </div>
                 <div class="item-info">
-                    <h3>Água Mineral Chela</h3>
+                    <h4>Água Mineral Chela</h4>
                     <p>Água mineral de nascente natural.</p>
                 </div>
                 <span class="item-price">300 Kz</span>
@@ -160,7 +169,7 @@
 
         </section>
 
-        <section id="cart" class="cart-section">
+        <section id="cart" class="cart-column">
             <h2>🛒 Meu Pedido</h2>
             <div class="cart-content">
                 <ul id="cart-list">
@@ -173,9 +182,8 @@
                 <button id="checkout-btn">Finalizar Encomenda (WhatsApp)</button>
             </div>
         </section>
-    </div>
-
-    <footer>
+        
+    </div> <footer>
         <div class="container">
             <p>&copy; 2025 Quintal dos Sabores. Todos os direitos reservados. Design por Chelasamunna.</p>
             <p>Sassamba, Rua da Vala, Saurimo</p>
@@ -184,4 +192,4 @@
 
     <script src="js/script.js"></script>
 </body>
-                                                                                          </html>
+    </html>
