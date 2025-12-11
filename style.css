@@ -5,50 +5,71 @@
  */
 
 body {
-    /* Fundo Principal (Nova Imagem) */
-    background-image: url('img/Foto_Chef_menu.png'); 
-    background-size: cover; 
-    background-repeat: no-repeat; 
-    background-attachment: fixed; 
-    
-    /* Outras propriedades */
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.6;
     color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Fundo Aplicado APENAS à página do Cardápio (menu.html) */
+#menu-page {
+    /* Foto_Chef_menu.png está na sua pasta img */
+    background-image: url('img/Foto_Chef_menu.png'); 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; /* CRÍTICO: Fixa o fundo, impedindo o movimento */
+}
+
+/* Fundo da Home Page (index.html) sem imagem */
+#index-page {
+    background-image: none; 
 }
 
 header {
     background-color: rgba(62, 39, 35, 0.9); /* Marrom Escuro Opaco */
     color: #fff;
-    padding: 1em 0;
-    text-align: center;
+    padding: 10px 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 1.8em;
+/* Estilo do Logotipo e Navegação */
+nav {
+    display: flex;
+    justify-content: space-between; /* Espaçamento entre logo e links */
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 nav ul {
-    padding: 0;
     list-style: none;
-    text-align: center;
-    margin: 0.5em 0 0;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
 }
 
-nav ul li {
-    display: inline;
-    margin: 0 10px;
+nav ul.nav-links {
+    /* Lista de links (Menu, Coordenadas) */
+    gap: 25px; 
+}
+
+.header-logo {
+    height: 45px; 
+    margin-right: 20px;
+    vertical-align: middle;
 }
 
 nav ul li a {
-    color: #ffcc80; /* Laranja Claro */
+    color: #ffcc80; 
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
@@ -58,65 +79,63 @@ nav ul li a:hover {
     color: #fff;
 }
 
+
 /*
  * =======================================================
- * CONTAINER PRINCIPAL E SEÇÕES
+ * LAYOUT DE DUAS COLUNAS (CRÍTICO PARA O MENU)
  * =======================================================
  */
 
-.container {
+.main-content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Menu (2 partes) e Carrinho (1 parte) */
+    gap: 30px;
     width: 90%;
     max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+    margin: 20px auto;
+    flex-grow: 1; 
 }
 
-/* Tornar o fundo do conteúdo mais opaco para legibilidade */
-section {
-    padding: 40px 20px;
-    margin: 20px 0;
-    background-color: rgba(255, 255, 255, 0.95); /* Aumentei a opacidade */
+.menu-list-column {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-section h2 {
-    color: #3e2723; /* Marrom Escuro */
-    border-bottom: 2px solid #ffcc80;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    text-align: center;
+.cart-column {
+    position: sticky; /* Faz o carrinho ficar parado ao fazer scroll */
+    top: 80px; 
+    height: fit-content; 
+    background-color: #fff8e1; 
+    border: 1px solid #ffcc80;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 /*
  * =======================================================
- * ESTILOS DO CARDÁPIO (MENU)
+ * ESTILOS DO CARDÁPIO (MENU ITENS)
  * =======================================================
  */
 
 .menu-item {
-    display: flex; /* CRÍTICO: Alinha imagem e texto */
+    display: flex; 
     justify-content: space-between;
-    align-items: flex-start; /* Alinha o conteúdo ao topo */
+    align-items: center; 
     padding: 15px 0;
     border-bottom: 1px dashed #ccc;
-    transition: background-color 0.3s;
 }
 
-.menu-item:last-child {
-    border-bottom: none;
-}
-
-/* Contêiner para envolver a imagem */
 .item-img-container {
     margin-right: 15px;
-    flex-shrink: 0; /* Impede que a imagem seja reduzida */
+    flex-shrink: 0; 
 }
 
-/* CRÍTICO: Estilo da Imagem do Menu */
 .menu-image {
-    width: 100px; 
-    height: 100px; 
+    width: 80px; 
+    height: 80px; 
     object-fit: cover; 
     border-radius: 5px; 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
@@ -124,26 +143,16 @@ section h2 {
 
 .item-info {
     flex-grow: 1;
-    display: block;
-}
-
-.item-info h3 {
-    margin: 0 0 5px;
-    color: #3e2723;
-    font-size: 1.2em;
-}
-
-.item-info p {
-    margin: 0;
-    color: #666;
-    font-size: 0.9em;
+    display: block; 
+    margin-right: 10px; 
 }
 
 .item-price {
     font-weight: bold;
     color: #e65100; 
     font-size: 1.2em;
-    margin-left: 20px;
+    margin-left: 10px;
+    flex-shrink: 0;
 }
 
 .add-to-cart {
@@ -155,103 +164,8 @@ section h2 {
     border-radius: 5px;
     font-weight: bold;
     transition: background-color 0.3s, transform 0.1s;
-    flex-shrink: 0; /* Impede que o botão seja reduzido */
-}
-
-.add-to-cart:hover {
-    background-color: #ffb74d;
-}
-
-.add-to-cart:active {
-    transform: scale(0.98);
-}
-
-/*
- * =======================================================
- * ESTILOS DO CARRINHO (CART)
- * =======================================================
- */
-
-.cart-section {
-    background-color: #fff8e1; 
-    border: 1px solid #ffcc80;
-}
-
-/* ... (O resto do CSS não precisa de ser alterado) ... */
-
-
-.cart-content {
-    background-color: #fff;
-    padding: 15px;
-    border-radius: 5px;
-}
-
-#cart-list {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 15px;
-    border-bottom: 1px solid #ccc;
-}
-
-#cart-list li {
-    display: flex;
-    justify-content: space-between;
-    padding: 5px 0;
-    font-size: 0.9em;
-}
-
-.item-remove {
-    color: #d32f2f;
-    cursor: pointer;
-    font-weight: bold;
-    margin-left: 10px;
-}
-
-.empty-cart-message {
-    text-align: center;
-    color: #999;
-    font-style: italic;
-    padding: 10px;
-}
-
-.cart-total {
-    display: flex;
-    justify-content: space-between;
-    font-weight: bold;
-    font-size: 1.1em;
-    margin-bottom: 15px;
-    padding-top: 5px;
-}
-
-#checkout-btn {
-    width: 100%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-#checkout-btn:hover {
-    background-color: #43a047;
-}
-
-/*
- * =======================================================
- * ESTILOS DO RODAPÉ (FOOTER)
- * =======================================================
- */
-
-footer {
-    text-align: center;
-    padding: 15px 0;
-    background-color: #3e2723;
-    color: #fff;
-    margin-top: 20px;
-    font-size: 0.9em;
+    flex-shrink: 0; 
+    margin-left: 10px; 
 }
 
 /*
@@ -264,33 +178,35 @@ footer {
     background-color: rgba(255, 255, 255, 0.9);
     text-align: center;
     padding: 80px 20px;
-    margin-top: 0;
+    margin: 20px auto; /* Centraliza a seção hero */
+    width: 90%;
+    max-width: 1000px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-#hero h1 {
-    font-size: 2.5em;
+.order-notice {
+    background-color: #fff8e1;
+    border: 1px solid #ffcc80;
     color: #3e2723;
-    margin-bottom: 10px;
-}
-
-#hero p {
-    font-size: 1.2em;
-    color: #666;
-    margin-bottom: 30px;
-}
-
-.cta-button {
-    display: inline-block;
-    background-color: #ff9800; 
-    color: white;
-    padding: 12px 25px;
-    text-decoration: none;
+    padding: 15px;
+    margin-top: 20px;
     border-radius: 5px;
+    text-align: center;
     font-weight: bold;
-    font-size: 1.1em;
-    transition: background-color 0.3s;
 }
 
-.cta-button:hover {
-    background-color: #fb8c00;
+/*
+ * =======================================================
+ * ESTILOS DO RODAPÉ (FOOTER)
+ * =======================================================
+ */
+footer {
+    margin-top: auto; 
+    text-align: center;
+    padding: 15px 0;
+    background-color: #3e2723;
+    color: #fff;
+    font-size: 0.9em;
+    width: 100%;
 }
