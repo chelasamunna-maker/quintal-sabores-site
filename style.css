@@ -15,7 +15,7 @@ body {
     flex-direction: column;
 }
 
-/* Fundo da Página Inicial (index.html) - Cor Castanho Escuro */
+/* Fundo da Página Inicial (index.html) e Sobre Nós - Cor Castanho Escuro */
 #index-page {
     background-image: none;
     background-color: #3e2723; 
@@ -106,9 +106,10 @@ nav ul li a:hover {
     max-width: 1200px;
     margin: 20px auto;
     flex-grow: 1; 
+    position: relative; 
+    z-index: 10;
 }
 
-/* CRÍTICO: ÁREA DO MENU AGORA TRANSPARENTE */
 .menu-list-column {
     background-color: rgba(255, 255, 255, 0); 
     padding: 30px 0; 
@@ -116,47 +117,86 @@ nav ul li a:hover {
     box-shadow: none; 
 }
 
-.menu-list-column h2, .menu-list-column h3 {
+/* Fundo semi-transparente para títulos e texto da chef */
+.menu-list-column h2, 
+.menu-list-column h3,
+.chef-dedication-text {
     color: #3e2723; 
     background-color: rgba(255, 255, 255, 0.7); 
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 20px;
+    font-weight: bold;
 }
 
-/* Estilo do Item do Menu (Fundo semi-transparente para cada item) */
+/* ============================================== */
+/* ESTILO CRÍTICO: REORGANIZAÇÃO DO ITEM DO MENU  */
+/* ============================================== */
+
 .menu-item {
-    display: flex; 
-    justify-content: space-between;
-    align-items: center; 
-    padding: 15px;
-    border-bottom: 1px dashed #ccc;
+    /* Define o container do item como bloco de fundo (castanho claro opaco) */
     background-color: rgba(255, 255, 255, 0.7); 
-    margin-bottom: 10px;
+    padding: 15px;
+    margin-bottom: 20px; /* Mais espaço entre os itens */
     border-radius: 5px;
+    overflow: hidden; /* Garante que o float não cause problemas */
+    position: relative; /* Para posicionar o botão no canto inferior direito */
+    min-height: 120px; /* Garante espaço mínimo */
 }
 
-/* Imagem e texto do item */
-.menu-image {
-    width: 80px; 
-    height: 80px; 
-    object-fit: cover; 
-    border-radius: 5px; 
+.item-img-container {
+    /* Faz a imagem flutuar no canto superior esquerdo */
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    width: 100px; /* Tamanho ajustado para o novo layout */
+    height: 100px;
+    overflow: hidden;
+    border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
     border: 2px solid #ffcc80; 
 }
 
-/* O preço em Dourado/Laranja */
+.menu-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+.item-info {
+    /* Ocupa o espaço à direita da imagem */
+    overflow: hidden;
+    padding-top: 5px;
+}
+
+.item-info h4 {
+    margin: 0;
+    color: #3e2723;
+    font-size: 1.2em;
+}
+
+.item-info p {
+    margin-top: 5px;
+    font-size: 0.9em;
+    color: #555;
+}
+
 .item-price {
+    /* Move o preço para baixo, antes do botão (display: block para nova linha) */
+    display: block; 
     font-weight: bold;
     color: #e65100; 
     font-size: 1.3em;
-    margin-left: 10px;
-    flex-shrink: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    clear: both; /* Limpa o float da imagem */
 }
 
-/* CRÍTICO: Botão Adicionar ao Pedido (Dourado) */
 .add-to-cart {
+    /* Posiciona o botão no canto inferior direito */
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
     background-color: #e65100; 
     color: white;
     border: none;
@@ -165,8 +205,6 @@ nav ul li a:hover {
     border-radius: 5px;
     font-weight: bold;
     transition: background-color 0.3s, transform 0.1s;
-    flex-shrink: 0; 
-    margin-left: 10px; 
 }
 
 .add-to-cart:hover {
@@ -175,8 +213,9 @@ nav ul li a:hover {
 }
 
 
-/* --- Estilos do Carrinho (Corrigido para Legibilidade) --- */
+/* --- Estilos do Carrinho --- */
 .cart-section {
+    /* Mantido no final do menu-list-column */
     background-color: #fff; 
     border: 3px solid #e65100; 
     padding: 15px;
@@ -192,6 +231,7 @@ nav ul li a:hover {
     font-size: 1.5em;
     border-bottom: 2px solid #ffcc80;
     padding-bottom: 10px;
+    background-color: #fff; /* Remove fundo opaco */
 }
 
 #cart-list {
@@ -252,7 +292,7 @@ nav ul li a:hover {
 }
 
 
-/* --- SEÇÕES DA PÁGINA INICIAL --- */
+/* --- SEÇÕES DA PÁGINA INICIAL e SOBRE NÓS --- */
 
 #hero {
     background-color: rgba(62, 39, 35, 1); 
@@ -295,6 +335,48 @@ nav ul li a:hover {
     font-weight: bold;
 }
 
+/* --- Efeitos de Queda de Temperos (APENAS NO MENU) --- */
+
+.menu-page-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; 
+    pointer-events: none; 
+    z-index: 1; 
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) scale(0.5); 
+        opacity: 0;
+    }
+}
+
+.item-fall {
+    position: absolute;
+    opacity: 0.8;
+    color: white; 
+    font-size: 20px;
+    animation: fall 15s linear infinite; 
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+/* Define os delays e posições iniciais para cada tempero */
+.item-fall:nth-child(1) { left: 10%; animation-delay: 0s; }
+.item-fall:nth-child(2) { left: 20%; animation-delay: 3s; font-size: 25px; }
+.item-fall:nth-child(3) { left: 30%; animation-delay: 6s; }
+.item-fall:nth-child(4) { left: 40%; animation-delay: 9s; font-size: 18px; }
+.item-fall:nth-child(5) { left: 50%; animation-delay: 12s; }
+.item-fall:nth-child(6) { left: 60%; animation-delay: 15s; font-size: 22px; }
+.item-fall:nth-child(7) { left: 70%; animation-delay: 18s; }
+.item-fall:nth-child(8) { left: 80%; animation-delay: 21s; font-size: 28px; }
+.item-fall:nth-child(9) { left: 90%; animation-delay: 24s; }
+.item-fall:nth-child(10) { left: 5%; animation-delay: 27s; }
+
 /* --- RODAPÉ --- */
 footer {
     margin-top: auto; 
@@ -304,4 +386,4 @@ footer {
     color: #fff;
     font-size: 0.9em;
     width: 100%;
-}
+    }
