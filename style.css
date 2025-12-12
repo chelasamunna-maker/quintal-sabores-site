@@ -18,8 +18,8 @@ body {
 /* Fundo da Página Inicial (index.html) - Cor Castanho Escuro */
 #index-page {
     background-image: none;
-    background-color: #3e2723; /* Castanho Escuro Chique */
-    color: #fff; /* Texto claro */
+    background-color: #3e2723; 
+    color: #fff; 
 }
 
 /* Fundo Aplicado APENAS à página do Cardápio (menu.html) */
@@ -33,7 +33,7 @@ body {
 /* --- CABEÇALHO E NAVEGAÇÃO --- */
 
 header {
-    background-color: rgba(62, 39, 35, 1); /* Castanho Sólido (removida a opacidade) */
+    background-color: rgba(62, 39, 35, 1); 
     color: #fff;
     padding: 10px 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -46,7 +46,6 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* Ajustado para usar 100% da largura, mas o conteúdo é centralizado */
     width: 90%; 
     max-width: 1200px;
     margin: 0 auto; 
@@ -71,7 +70,7 @@ nav ul.nav-links {
 }
 
 nav ul li a {
-    color: #ffcc80; /* Dourado Claro */
+    color: #ffcc80; 
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
@@ -84,7 +83,7 @@ nav ul li a:hover {
 
 /* Estilo do Botão CTA na Navegação */
 .cta-button {
-    background-color: #e65100; /* Dourado Escuro / Laranja */
+    background-color: #e65100; 
     color: white;
     padding: 8px 15px;
     border-radius: 5px;
@@ -111,28 +110,28 @@ nav ul li a:hover {
 
 /* CRÍTICO: ÁREA DO MENU AGORA TRANSPARENTE */
 .menu-list-column {
-    background-color: rgba(255, 255, 255, 0); /* Totalmente Transparente */
-    padding: 30px 0; /* Ajustado o padding */
+    background-color: rgba(255, 255, 255, 0); 
+    padding: 30px 0; 
     border-radius: 8px;
-    box-shadow: none; /* Sem sombra */
+    box-shadow: none; 
 }
 
 .menu-list-column h2, .menu-list-column h3 {
-    color: #3e2723; /* Títulos em cor escura */
-    background-color: rgba(255, 255, 255, 0.7); /* Fundo semi-transparente para títulos */
+    color: #3e2723; 
+    background-color: rgba(255, 255, 255, 0.7); 
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 20px;
 }
 
-/* Estilo do Item do Menu (Fundo Transparente para cada item) */
+/* Estilo do Item do Menu (Fundo semi-transparente para cada item) */
 .menu-item {
     display: flex; 
     justify-content: space-between;
     align-items: center; 
     padding: 15px;
     border-bottom: 1px dashed #ccc;
-    background-color: rgba(255, 255, 255, 0.7); /* Fundo semi-transparente do item */
+    background-color: rgba(255, 255, 255, 0.7); 
     margin-bottom: 10px;
     border-radius: 5px;
 }
@@ -144,13 +143,13 @@ nav ul li a:hover {
     object-fit: cover; 
     border-radius: 5px; 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
-    border: 2px solid #ffcc80; /* Pequena borda dourada na foto */
+    border: 2px solid #ffcc80; 
 }
 
 /* O preço em Dourado/Laranja */
 .item-price {
     font-weight: bold;
-    color: #e65100; /* Dourado Escuro */
+    color: #e65100; 
     font-size: 1.3em;
     margin-left: 10px;
     flex-shrink: 0;
@@ -158,7 +157,7 @@ nav ul li a:hover {
 
 /* CRÍTICO: Botão Adicionar ao Pedido (Dourado) */
 .add-to-cart {
-    background-color: #e65100; /* Dourado Escuro */
+    background-color: #e65100; 
     color: white;
     border: none;
     padding: 8px 15px;
@@ -171,15 +170,92 @@ nav ul li a:hover {
 }
 
 .add-to-cart:hover {
-    background-color: #ffcc80; /* Dourado Claro no hover */
+    background-color: #ffcc80; 
     color: #3e2723;
+}
+
+
+/* --- Estilos do Carrinho (Corrigido para Legibilidade) --- */
+.cart-section {
+    background-color: #fff; 
+    border: 3px solid #e65100; 
+    padding: 15px;
+    margin-top: 30px; 
+    margin-bottom: 50px; 
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cart-section h2 {
+    color: #3e2723;
+    margin-top: 0;
+    font-size: 1.5em;
+    border-bottom: 2px solid #ffcc80;
+    padding-bottom: 10px;
+}
+
+#cart-list {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+#cart-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+    border-bottom: 1px dotted #ccc;
+    font-size: 0.95em;
+    color: #333;
+}
+
+.item-price-cart {
+    font-weight: bold;
+    color: #e65100;
+}
+
+.remove-item-btn {
+    background: none;
+    border: none;
+    color: #a00;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding-top: 10px;
+    margin-top: 10px;
+    border-top: 2px solid #3e2723;
+    color: #3e2723;
+}
+
+#checkout-btn {
+    width: 100%;
+    margin-top: 15px;
+    padding: 12px;
+    background-color: #4CAF50; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s;
+}
+
+#checkout-btn:hover {
+    background-color: #388e3c;
 }
 
 
 /* --- SEÇÕES DA PÁGINA INICIAL --- */
 
 #hero {
-    background-color: rgba(62, 39, 35, 1); /* Usa o Castanho Escuro Sólido */
+    background-color: rgba(62, 39, 35, 1); 
     color: #fff;
     text-align: center;
     padding: 80px 20px;
@@ -188,16 +264,16 @@ nav ul li a:hover {
     max-width: 1000px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-    border: 3px solid #ffcc80; /* Borda Dourada para destaque */
+    border: 3px solid #ffcc80; 
 }
 
 #hero h1 {
-    color: #ffcc80; /* Título em Dourado */
+    color: #ffcc80; 
 }
 
 /* Coordenadas Bancárias e Contactos na Home */
 #coordenadas, #contactos {
-    background-color: rgba(255, 255, 255, 0.1); /* Fundo ligeiramente visível no Castanho Escuro */
+    background-color: rgba(255, 255, 255, 0.1); 
     color: #ffcc80;
     padding: 20px;
     margin: 20px auto;
@@ -209,9 +285,9 @@ nav ul li a:hover {
 
 /* Aviso de Encomenda */
 .order-notice {
-    background-color: #fff8e1; /* Fundo amarelo claro */
+    background-color: #fff8e1; 
     border: 1px solid #ffcc80;
-    color: #3e2723; /* Texto castanho escuro */
+    color: #3e2723; 
     padding: 15px;
     margin-top: 20px;
     border-radius: 5px;
