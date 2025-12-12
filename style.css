@@ -1,6 +1,6 @@
 /*
  * =======================================================
- * ESTILOS GERAIS
+ * PALETA DE CORES: MARROM ESCURO (#3E2723) e DOURADO (#FFCC80 / #E65100)
  * =======================================================
  */
 
@@ -15,23 +15,25 @@ body {
     flex-direction: column;
 }
 
-/* Fundo da Página Inicial (index.html) - Cor Chique Marrom Claro */
+/* Fundo da Página Inicial (index.html) - Cor Castanho Escuro */
 #index-page {
     background-image: none;
-    background-color: #f5f5dc; /* Cor Beige/Creme chique */
+    background-color: #3e2723; /* Castanho Escuro Chique */
+    color: #fff; /* Texto claro */
 }
 
 /* Fundo Aplicado APENAS à página do Cardápio (menu.html) */
 #menu-page {
-    /* Fundo fixo para não dar para "mexer" */
     background-image: url('img/Foto_Chef_menu.png'); 
     background-size: cover; 
     background-repeat: no-repeat; 
     background-attachment: fixed; 
 }
 
+/* --- CABEÇALHO E NAVEGAÇÃO --- */
+
 header {
-    background-color: rgba(62, 39, 35, 0.9); /* Marrom Escuro Opaco */
+    background-color: rgba(62, 39, 35, 1); /* Castanho Sólido (removida a opacidade) */
     color: #fff;
     padding: 10px 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -40,12 +42,11 @@ header {
     z-index: 1000;
 }
 
-/* CRÍTICO: NAV OCUPANDO TODA A LARGURA (REMOÇÃO DO MAX-WIDTH AQUI) */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* Remover limite de 1200px para que o fundo azul chegue ao limite */
+    /* Ajustado para usar 100% da largura, mas o conteúdo é centralizado */
     width: 90%; 
     max-width: 1200px;
     margin: 0 auto; 
@@ -70,26 +71,37 @@ nav ul.nav-links {
 }
 
 nav ul li a {
-    color: #ffcc80; 
+    color: #ffcc80; /* Dourado Claro */
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
-    white-space: nowrap; /* Impede quebras de linha nos links */
+    white-space: nowrap;
 }
 
 nav ul li a:hover {
     color: #fff;
 }
 
+/* Estilo do Botão CTA na Navegação */
+.cta-button {
+    background-color: #e65100; /* Dourado Escuro / Laranja */
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
 
-/*
- * =======================================================
- * REMOÇÃO DO LAYOUT DE DUAS COLUNAS (CRÍTICO)
- * =======================================================
- */
+.cta-button:hover {
+    background-color: #ffcc80;
+    color: #3e2723;
+}
+
+
+/* --- LAYOUT DO CARDÁPIO (MENU) --- */
 
 .main-content-grid {
-    /* REVERTE PARA LAYOUT DE COLUNA ÚNICA */
     display: block; 
     width: 90%;
     max-width: 1200px;
@@ -97,62 +109,117 @@ nav ul li a:hover {
     flex-grow: 1; 
 }
 
+/* CRÍTICO: ÁREA DO MENU AGORA TRANSPARENTE */
 .menu-list-column {
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 30px;
+    background-color: rgba(255, 255, 255, 0); /* Totalmente Transparente */
+    padding: 30px 0; /* Ajustado o padding */
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: none; /* Sem sombra */
 }
 
-.cart-column {
-    /* ESTE ESTILO É IGNORADO, POIS O CARRINHO FOI MOVIMENTADO */
-    background-color: #fff8e1; 
-    border: 1px solid #ffcc80;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+.menu-list-column h2, .menu-list-column h3 {
+    color: #3e2723; /* Títulos em cor escura */
+    background-color: rgba(255, 255, 255, 0.7); /* Fundo semi-transparente para títulos */
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
 }
 
-/* ... (Estilos do Menu Item mantidos para alinhar botões/fotos) ... */
+/* Estilo do Item do Menu (Fundo Transparente para cada item) */
 .menu-item {
     display: flex; 
     justify-content: space-between;
     align-items: center; 
-    padding: 15px 0;
+    padding: 15px;
     border-bottom: 1px dashed #ccc;
+    background-color: rgba(255, 255, 255, 0.7); /* Fundo semi-transparente do item */
+    margin-bottom: 10px;
+    border-radius: 5px;
 }
 
+/* Imagem e texto do item */
 .menu-image {
     width: 80px; 
     height: 80px; 
     object-fit: cover; 
     border-radius: 5px; 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+    border: 2px solid #ffcc80; /* Pequena borda dourada na foto */
 }
 
-/* ... (Resto do CSS mantido ou ajustado para o novo layout) ... */
-
-/* Estilos do Carrinho (Adaptado para Coluna Única) */
-.cart-section {
-    background-color: #fff8e1; /* Cor de fundo do carrinho */
-    border: 1px solid #ffcc80;
-    padding: 20px;
-    margin-top: 30px; /* Adiciona espaçamento após o menu */
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+/* O preço em Dourado/Laranja */
+.item-price {
+    font-weight: bold;
+    color: #e65100; /* Dourado Escuro */
+    font-size: 1.3em;
+    margin-left: 10px;
+    flex-shrink: 0;
 }
+
+/* CRÍTICO: Botão Adicionar ao Pedido (Dourado) */
+.add-to-cart {
+    background-color: #e65100; /* Dourado Escuro */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.1s;
+    flex-shrink: 0; 
+    margin-left: 10px; 
+}
+
+.add-to-cart:hover {
+    background-color: #ffcc80; /* Dourado Claro no hover */
+    color: #3e2723;
+}
+
+
+/* --- SEÇÕES DA PÁGINA INICIAL --- */
 
 #hero {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(62, 39, 35, 1); /* Usa o Castanho Escuro Sólido */
+    color: #fff;
     text-align: center;
     padding: 80px 20px;
     margin: 20px auto; 
     width: 90%;
     max-width: 1000px;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    border: 3px solid #ffcc80; /* Borda Dourada para destaque */
 }
 
+#hero h1 {
+    color: #ffcc80; /* Título em Dourado */
+}
+
+/* Coordenadas Bancárias e Contactos na Home */
+#coordenadas, #contactos {
+    background-color: rgba(255, 255, 255, 0.1); /* Fundo ligeiramente visível no Castanho Escuro */
+    color: #ffcc80;
+    padding: 20px;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 1000px;
+    border-radius: 8px;
+    border: 1px dashed #ffcc80;
+}
+
+/* Aviso de Encomenda */
+.order-notice {
+    background-color: #fff8e1; /* Fundo amarelo claro */
+    border: 1px solid #ffcc80;
+    color: #3e2723; /* Texto castanho escuro */
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* --- RODAPÉ --- */
 footer {
     margin-top: auto; 
     text-align: center;
