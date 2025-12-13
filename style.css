@@ -1,389 +1,377 @@
-/*
- * =======================================================
- * PALETA DE CORES: MARROM ESCURO (#3E2723) e DOURADO (#FFCC80 / #E65100)
- * =======================================================
- */
+/* =========================================================================
+   ESTILOS GERAIS
+   ========================================================================= */
+:root {
+    --primary-color: #6d4c41; /* Marrom-escuro (fundo principal) */
+    --secondary-color: #ffcc80; /* Dourado/Laranja claro (destaque) */
+    --accent-color: #ff9900; /* Laranja forte (botões CTA) */
+    --text-dark: #333333;
+    --text-light: #ffffff;
+    --bg-light: #f5f5f5; /* Fundo claro para o menu */
+    --bg-dark: #4e342e; /* Fundo escuro para cabeçalho/rodapé */
+    --cart-bg: #fffbe6; /* Fundo para o carrinho */
+}
 
-body {
-    font-family: Arial, sans-serif;
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    line-height: 1.6;
-    color: #333;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    font-family: Arial, sans-serif;
 }
 
-/* Fundo da Página Inicial (index.html) e Sobre Nós - Cor Castanho Escuro */
-#index-page {
-    background-image: none;
-    background-color: #3e2723; 
-    color: #fff; 
+body {
+    background-color: var(--primary-color);
+    color: var(--text-dark);
 }
 
-/* Fundo Aplicado APENAS à página do Cardápio (menu.html) */
-#menu-page {
-    background-image: url('img/Foto_Chef_menu.png'); 
-    background-size: cover; 
-    background-repeat: no-repeat; 
-    background-attachment: fixed; 
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* --- CABEÇALHO E NAVEGAÇÃO --- */
+h1, h2, h3 {
+    font-family: 'Georgia', serif;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
 
+a {
+    text-decoration: none;
+    color: var(--text-light);
+    transition: color 0.3s;
+}
+
+/* Botão CTA */
+.cta-button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--text-light);
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #e68a00;
+}
+
+/* Layout Principal */
+.main-content-grid {
+    display: grid;
+    gap: 30px;
+    padding: 30px 5%;
+}
+
+/* =========================================================================
+   HEADER & NAVEGAÇÃO
+   ========================================================================= */
 header {
-    background-color: rgba(62, 39, 35, 1); 
-    color: #fff;
-    padding: 10px 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    padding: 10px 5%;
+    width: 100%;
     position: sticky;
     top: 0;
     z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 90%; 
-    max-width: 1200px;
-    margin: 0 auto; 
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
-nav ul {
+.logo-area {
     list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    align-items: center;
-}
-
-nav ul.nav-links {
-    gap: 25px; 
 }
 
 .header-logo {
-    height: 45px; 
-    margin-right: 20px;
-    vertical-align: middle;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--secondary-color);
 }
 
-nav ul li a {
-    color: #ffcc80; 
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
-    white-space: nowrap;
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    align-items: center;
 }
 
-nav ul li a:hover {
-    color: #fff;
-}
-
-/* Estilo do Botão CTA na Navegação */
-.cta-button {
-    background-color: #e65100; 
-    color: white;
-    padding: 8px 15px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
-
-.cta-button:hover {
-    background-color: #ffcc80;
-    color: #3e2723;
-}
-
-
-/* --- LAYOUT DO CARDÁPIO (MENU) --- */
-
-.main-content-grid {
-    display: block; 
-    width: 90%;
-    max-width: 1200px;
-    margin: 20px auto;
-    flex-grow: 1; 
-    position: relative; 
-    z-index: 10;
-}
-
-.menu-list-column {
-    background-color: rgba(255, 255, 255, 0); 
-    padding: 30px 0; 
-    border-radius: 8px;
-    box-shadow: none; 
-}
-
-/* Fundo semi-transparente para títulos e texto da chef */
-.menu-list-column h2, 
-.menu-list-column h3,
-.chef-dedication-text {
-    color: #3e2723; 
-    background-color: rgba(255, 255, 255, 0.7); 
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 20px;
+.nav-links a {
+    padding: 5px 10px;
     font-weight: bold;
 }
 
-/* ============================================== */
-/* ESTILO CRÍTICO: REORGANIZAÇÃO DO ITEM DO MENU  */
-/* ============================================== */
+.nav-links a:hover {
+    color: var(--secondary-color);
+}
 
-.menu-item {
-    /* Define o container do item como bloco de fundo (castanho claro opaco) */
-    background-color: rgba(255, 255, 255, 0.7); 
+/* =========================================================================
+   PÁGINA INICIAL (index.html)
+   ========================================================================= */
+#index-page .main-content-grid {
+    grid-template-columns: 1fr;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#hero {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #4e342e; 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    color: var(--text-light);
+}
+
+.order-notice {
+    background-color: var(--secondary-color);
+    color: var(--text-dark);
     padding: 15px;
-    margin-bottom: 20px; /* Mais espaço entre os itens */
-    border-radius: 5px;
-    overflow: hidden; /* Garante que o float não cause problemas */
-    position: relative; /* Para posicionar o botão no canto inferior direito */
-    min-height: 120px; /* Garante espaço mínimo */
+    border-radius: 8px;
+    margin-top: 30px;
+    font-weight: 500;
+}
+
+#coordenadas, #contactos {
+    background-color: var(--bg-dark);
+    padding: 20px;
+    border-radius: 10px;
+    color: var(--text-light);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+#coordenadas ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+/* =========================================================================
+   CORREÇÃO DO LAYOUT PARA MENU E SOBRE NÓS
+   ========================================================================= */
+#menu-page, #sobre-nos-page {
+    background-image: url('img/background.jpg'); 
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+.content-box, .menu-list-column {
+    background-color: #ffffff; /* Fundo branco SÓLIDO para legibilidade */
+    margin: 30px auto;
+    padding: 20px 10px;
+    max-width: 900px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative; 
+    z-index: 2;
+}
+
+#menu-page h2, #menu-page h3, #sobre-nos-page h1, #sobre-nos-page p, 
+#sobre-nos-page h2 {
+    color: var(--text-dark);
+}
+
+
+/* =========================================================================
+   PÁGINA DO CARDÁPIO (menu.html)
+   ========================================================================= */
+#menu h2, #menu h3 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-top: 30px;
+}
+
+.chef-dedication-text {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+/* Layout de cada item do menu (Flexbox) */
+.menu-item {
+    display: flex; 
+    align-items: flex-start;
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 15px;
 }
 
 .item-img-container {
-    /* Faz a imagem flutuar no canto superior esquerdo */
-    float: left;
+    flex-shrink: 0; 
     margin-right: 15px;
-    margin-bottom: 15px;
-    width: 100px; /* Tamanho ajustado para o novo layout */
+}
+
+.menu-item .menu-image {
+    width: 100px; 
     height: 100px;
-    overflow: hidden;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
-    border: 2px solid #ffcc80; 
-}
-
-.menu-image {
-    width: 100%;
-    height: 100%;
     object-fit: cover; 
+    border-radius: 8px;
+    border: 1px solid #ddd;
 }
 
-.item-info {
-    /* Ocupa o espaço à direita da imagem */
-    overflow: hidden;
-    padding-top: 5px;
-}
-
-.item-info h4 {
-    margin: 0;
-    color: #3e2723;
-    font-size: 1.2em;
-}
-
-.item-info p {
-    margin-top: 5px;
-    font-size: 0.9em;
-    color: #555;
+.menu-item .item-info {
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column; 
+    align-self: flex-start; 
 }
 
 .item-price {
-    /* Move o preço para baixo, antes do botão (display: block para nova linha) */
-    display: block; 
+    font-size: 1.1em;
     font-weight: bold;
-    color: #e65100; 
-    font-size: 1.3em;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    clear: both; /* Limpa o float da imagem */
+    color: var(--primary-color); 
+    margin: 5px 0 10px 0;
+    display: block; 
 }
 
 .add-to-cart {
-    /* Posiciona o botão no canto inferior direito */
-    position: absolute;
-    bottom: 15px;
-    right: 15px;
-    background-color: #e65100; 
+    background-color: var(--accent-color);
     color: white;
-    border: none;
     padding: 8px 15px;
-    cursor: pointer;
+    border: none;
     border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
     font-weight: bold;
-    transition: background-color 0.3s, transform 0.1s;
+    transition: background-color 0.3s;
+    text-transform: uppercase;
+    align-self: flex-start; 
 }
 
 .add-to-cart:hover {
-    background-color: #ffcc80; 
-    color: #3e2723;
+    background-color: #e68a00;
 }
 
 
-/* --- Estilos do Carrinho --- */
+/* Estilos para o Carrinho (Meu Pedido) */
 .cart-section {
-    /* Mantido no final do menu-list-column */
-    background-color: #fff; 
-    border: 3px solid #e65100; 
-    padding: 15px;
-    margin-top: 30px; 
-    margin-bottom: 50px; 
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.cart-section h2 {
-    color: #3e2723;
-    margin-top: 0;
-    font-size: 1.5em;
-    border-bottom: 2px solid #ffcc80;
-    padding-bottom: 10px;
-    background-color: #fff; /* Remove fundo opaco */
-}
-
-#cart-list {
-    list-style: none;
-    padding: 0;
-    margin: 10px 0;
-}
-
-#cart-list li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px 0;
-    border-bottom: 1px dotted #ccc;
-    font-size: 0.95em;
-    color: #333;
-}
-
-.item-price-cart {
-    font-weight: bold;
-    color: #e65100;
-}
-
-.remove-item-btn {
-    background: none;
-    border: none;
-    color: #a00;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.cart-total {
-    display: flex;
-    justify-content: space-between;
-    font-size: 1.2em;
-    font-weight: bold;
-    padding-top: 10px;
-    margin-top: 10px;
-    border-top: 2px solid #3e2723;
-    color: #3e2723;
+    background-color: var(--cart-bg);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 #checkout-btn {
     width: 100%;
-    margin-top: 15px;
-    padding: 12px;
-    background-color: #4CAF50; 
+    background-color: #4CAF50; /* Verde para o WhatsApp */
     color: white;
+    padding: 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1.1em;
+    margin-top: 15px;
     transition: background-color 0.3s;
 }
 
 #checkout-btn:hover {
-    background-color: #388e3c;
+    background-color: #45a049;
 }
 
-
-/* --- SEÇÕES DA PÁGINA INICIAL e SOBRE NÓS --- */
-
-#hero {
-    background-color: rgba(62, 39, 35, 1); 
-    color: #fff;
-    text-align: center;
-    padding: 80px 20px;
-    margin: 20px auto; 
-    width: 90%;
-    max-width: 1000px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-    border: 3px solid #ffcc80; 
-}
-
-#hero h1 {
-    color: #ffcc80; 
-}
-
-/* Coordenadas Bancárias e Contactos na Home */
-#coordenadas, #contactos {
-    background-color: rgba(255, 255, 255, 0.1); 
-    color: #ffcc80;
-    padding: 20px;
-    margin: 20px auto;
-    width: 90%;
-    max-width: 1000px;
-    border-radius: 8px;
-    border: 1px dashed #ffcc80;
-}
-
-/* Aviso de Encomenda */
-.order-notice {
-    background-color: #fff8e1; 
-    border: 1px solid #ffcc80;
-    color: #3e2723; 
-    padding: 15px;
-    margin-top: 20px;
-    border-radius: 5px;
-    text-align: center;
-    font-weight: bold;
-}
-
-/* --- Efeitos de Queda de Temperos (APENAS NO MENU) --- */
-
+/* Efeito de temperos a cair (Aprimorado) */
 .menu-page-effect {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden; 
-    pointer-events: none; 
+    pointer-events: none;
+    overflow: hidden;
     z-index: 1; 
-}
-
-@keyframes fall {
-    to {
-        transform: translateY(100vh) scale(0.5); 
-        opacity: 0;
-    }
 }
 
 .item-fall {
     position: absolute;
-    opacity: 0.8;
-    color: white; 
-    font-size: 20px;
-    animation: fall 15s linear infinite; 
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-    z-index: 10;
+    font-size: 1.8em;
+    animation: fall linear infinite;
+    opacity: 0.7;
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.3)); 
 }
 
-/* Define os delays e posições iniciais para cada tempero */
-.item-fall:nth-child(1) { left: 10%; animation-delay: 0s; }
-.item-fall:nth-child(2) { left: 20%; animation-delay: 3s; font-size: 25px; }
-.item-fall:nth-child(3) { left: 30%; animation-delay: 6s; }
-.item-fall:nth-child(4) { left: 40%; animation-delay: 9s; font-size: 18px; }
-.item-fall:nth-child(5) { left: 50%; animation-delay: 12s; }
-.item-fall:nth-child(6) { left: 60%; animation-delay: 15s; font-size: 22px; }
-.item-fall:nth-child(7) { left: 70%; animation-delay: 18s; }
-.item-fall:nth-child(8) { left: 80%; animation-delay: 21s; font-size: 28px; }
-.item-fall:nth-child(9) { left: 90%; animation-delay: 24s; }
-.item-fall:nth-child(10) { left: 5%; animation-delay: 27s; }
-
-/* --- RODAPÉ --- */
-footer {
-    margin-top: auto; 
-    text-align: center;
-    padding: 15px 0;
-    background-color: #3e2723;
-    color: #fff;
-    font-size: 0.9em;
-    width: 100%;
+@keyframes fall {
+    0% {
+        transform: translateY(-100px) rotate(0deg) scale(0.8);
+        opacity: 0;
     }
+    10% {
+        opacity: 0.8;
+    }
+    90% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg) scale(1.2);
+        opacity: 0;
+    }
+}
+/* Definições de animação mais variadas */
+.item-fall:nth-child(1) { left: 10%; animation-duration: 10s; animation-delay: 0s; }
+.item-fall:nth-child(2) { left: 20%; animation-duration: 12s; animation-delay: 2s; }
+.item-fall:nth-child(3) { left: 30%; animation-duration: 8s; animation-delay: 1s; }
+.item-fall:nth-child(4) { left: 40%; animation-duration: 15s; animation-delay: 3s; }
+.item-fall:nth-child(5) { left: 50%; animation-duration: 9s; animation-delay: 0.5s; }
+.item-fall:nth-child(6) { left: 60%; animation-duration: 11s; animation-delay: 4s; }
+.item-fall:nth-child(7) { left: 70%; animation-duration: 7s; animation-delay: 2.5s; }
+.item-fall:nth-child(8) { left: 80%; animation-duration: 13s; animation-delay: 1.5s; }
+.item-fall:nth-child(9) { left: 90%; animation-duration: 10s; animation-delay: 3.5s; }
+.item-fall:nth-child(10) { left: 5%; animation-duration: 14s; animation-delay: 5s; }
+
+
+/* =========================================================================
+   RODAPÉ
+   ========================================================================= */
+footer {
+    background-color: var(--bg-dark);
+    color: var(--secondary-color);
+    text-align: center;
+    padding: 15px 5%;
+    font-size: 0.9em;
+    border-top: 3px solid var(--secondary-color);
+}
+
+
+/* =========================================================================
+   MEDIA QUERIES (Responsividade para Telemóveis)
+   ========================================================================= */
+@media (max-width: 600px) {
+    .nav-links {
+        gap: 10px;
+        font-size: 0.8em;
+    }
+    
+    .nav-links a {
+        padding: 5px 3px;
+    }
+    
+    .menu-item {
+        flex-direction: column; 
+        align-items: center;
+        text-align: center;
+    }
+    
+    .item-img-container {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .menu-item .item-info {
+        align-items: center;
+        text-align: center;
+    }
+
+    .add-to-cart {
+        align-self: center; 
+    }
+}
