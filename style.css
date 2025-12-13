@@ -155,17 +155,28 @@ nav {
 }
 
 /* =========================================================================
-   CORREÇÃO DO LAYOUT PARA MENU E SOBRE NÓS
+   ESTILOS ESPECÍFICOS PARA FUNDO (MENU E SOBRE NÓS)
    ========================================================================= */
-#menu-page, #sobre-nos-page {
-    background-image: url('img/background.jpg'); 
+/* Fundo para a página do Menu (onde está a foto da Chef) */
+#menu-page {
+    background-image: url('img/chefe_quintas.jpg'); /* Foto do cardápio */
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
 }
 
+/* Fundo para a página Sobre Nós (AGORA USANDO A SUA IMAGEM) */
+#sobre-nos-page {
+    background-image: url('img/fundo_chef_quintas.jpg'); /* IMAGEM ATUALIZADA */
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+/* Conteiner do Menu e Sobre Nós (Fundo semi-transparente para legibilidade) */
 .content-box, .menu-list-column {
-    background-color: #ffffff; /* Fundo branco SÓLIDO para legibilidade */
+    /* Fundo semi-transparente para ver a imagem do Chef por baixo */
+    background: rgba(255, 255, 255, 0.85); 
     margin: 30px auto;
     padding: 20px 10px;
     max-width: 900px;
@@ -280,7 +291,7 @@ nav {
     background-color: #45a049;
 }
 
-/* Efeito de temperos a cair (Aprimorado) */
+/* Efeito de temperos a cair (Melhoria de performance e aspecto) */
 .menu-page-effect {
     position: fixed;
     top: 0;
@@ -374,4 +385,4 @@ footer {
     .add-to-cart {
         align-self: center; 
     }
-}
+   }
